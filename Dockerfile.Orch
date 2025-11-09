@@ -1,0 +1,13 @@
+FROM golang:1.24.3
+
+# Устанавливаем рабочую директорию внутри контейнера
+WORKDIR /orch
+
+# Копируем файлы проекта в контейнер
+COPY . .
+
+# Сборка третьего приложения (runOrchestrator)
+RUN go build -o runOrchestrator ./cmd/runOrchestrator/Omain.go
+
+# Указываем запуск скрипта
+CMD ["./runOrchestrator"]

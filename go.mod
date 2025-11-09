@@ -1,4 +1,4 @@
-module github.com/nikitakutergin59/BH_Lu_3
+module github.com/nk-BH-D/BH_Lu_3
 
 go 1.24.2
 

@@ -1,0 +1,16 @@
+FROM golang:1.24.3
+
+# Устанавливаем рабочую директорию внутри контейнера
+WORKDIR /bh
+
+# Компилятор для sqlite3
+RUN apt-get update && apt-get install -y gcc musl-dev
+
+# Копируем файлы проекта в контейнер
+COPY . .
+
+# Сборка приложения в исполняемый файл main
+RUN go build -o runBH ./cmd/runBH/BHmain.go
+
+# Указываем команду для запуска приложения
+CMD ["./runBH"]

@@ -1,0 +1,12 @@
+FROM golang:1.24.3
+
+# Устанавливаем рабочую директорию внутри контейнера
+WORKDIR /demon
+
+#  Копируем файлы проекта в контейнер
+COPY . .
+
+# Сборка второго приложения (runDemon)
+RUN go build -o runDemon ./cmd/runDemon/Dmain.go
+
+CMD ["./runDemon"]
